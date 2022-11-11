@@ -66,6 +66,8 @@ function calcularMayorNumero (array){
 
 }
 
+
+/*
 function calcularModa (array) {
 
     let contadorMax = 0
@@ -95,10 +97,50 @@ function calcularModa (array) {
 
 
 }
+*/
+
+
+function calcularModa (array) {
+
+    let acumuladorActual = 1
+    let acumuladorMaximo = 1
+    let resultado
+    let numeroAComparar = 0
+
+    for ( let i = array.length-1; i>0; i--) {
+        
+        numeroAComparar = array[i]
+        acumuladorActual = 1
+        
+        for ( let j = i ; j>0; j--) {
+
+            if (array[j-1] === numeroAComparar) {
+                acumuladorActual++
+            }
+
+
+            if (acumuladorActual > acumuladorMaximo) {
+                acumuladorMaximo = acumuladorActual
+                resultado = numeroAComparar
+            }
+        
+        }
+    }
+
+    return (acumuladorMaximo === 1) ? 
+    "No hay numero más frecuente" : resultado
+}
+
+
+
+
+
 
 $textoPromedio.innerHTML = calcularPromedio(arrayNumeros);
 $textoNumeroMasPequenio.innerHTML = calcularMenorNumero(arrayNumeros);
 $textoNumeroMasGrande.innerHTML = calcularMayorNumero(arrayNumeros);
 
-calcularModa (arrayNumeros)
+$textoNumeroMasFrecuente.innerHTML = calcularModa(arrayNumeros);
+
+
 
