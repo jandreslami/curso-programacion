@@ -118,12 +118,10 @@ function calcularModa (array) {
                 acumuladorActual++
             }
 
-
             if (acumuladorActual > acumuladorMaximo) {
                 acumuladorMaximo = acumuladorActual
                 resultado = numeroAComparar
             }
-        
         }
     }
 
